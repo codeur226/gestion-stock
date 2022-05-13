@@ -47,7 +47,7 @@
               <!-- /.card-body -->
               <div class="card-footer">
                 <div class="float-right">
-                    {{--$CategorieMateriels->links() --}}
+                    {{$fournisseurs->links() }}
                 </div>
               </div>
             </div>
