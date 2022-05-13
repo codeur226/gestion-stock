@@ -2,7 +2,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header bg-gradient-primary d-flex align-items-center">
-                <h3 class="card-title flex-grow-1"><i class="fa fa-list fa-2x"></i>Entrée de Materiel</h3>
+                <h3 class="card-title flex-grow-1"><i class="fa fa-list fa-2x"></i>Entrée de Materiel en stock</h3>
 
                 <div class="card-tools d-flex align-items-center ">
                 <a class="btn btn-link text-white mr-4 d-block" wire:click="goToAddEntree()"><i class="fas fa-user-plus"></i> Nouvelle Entrée</a>
