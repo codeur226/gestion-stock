@@ -20,7 +20,7 @@ class PermissionsSeeder extends Seeder
             ["nom"=> "editer un materiel"],
             ["nom"=> "supprimer un materiel"],
 
-            ["nom"=> "ajouter un Fournisseur"],
+            /*["nom"=> "ajouter un Fournisseur"],
             ["nom"=> "editer un Fournisseur"],
             ["nom"=> "supprimer un Fournisseur"],
 
@@ -30,7 +30,7 @@ class PermissionsSeeder extends Seeder
 
             ["nom"=> "ajouter une Sortie"],
             ["nom"=> "editer une Sortie"],
-            ["nom"=> "supprimer une Sortie"],
+            ["nom"=> "supprimer une Sortie"],*/
         ]);
     }
 }

@@ -25,8 +25,8 @@ class DirectionFactory extends Factory
     {
         return [
             "Nom" => $this->faker->LastName,
-            "Libelle"=> $this->faker->FirstName
-            //
+            "Libelle"=> array_rand(["DRH", "DFC"], 1),
+            
         ];
     }
 }

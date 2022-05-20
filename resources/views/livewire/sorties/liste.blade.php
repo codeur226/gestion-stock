@@ -20,8 +20,8 @@
                 <table class="table table-head-fixed">
                   <thead>
                         <tr>
-                        <th>Nom</th>
-                        <th >Quantité</th>
+                        <th>Nom Sortie</th>
+                        <th >Quantités</th>
                         <th  class="text-center">Ajouté</th>
                         <th  class="text-center">Action</th>
                         </tr>
@@ -34,6 +34,7 @@
                                 <td class="text-center">{{optional($sortie->created_at)->diffForHumans() }}</td>
                                 <td class="text-center">
                                     <button class="btn btn-link" wire:click="goToEditSortie({{$sortie->id}})"> <i class="far fa-edit"></i> </button>
+                                    <a href="/exportepdf" class="btn btn-link"><i class="fa fa-print" aria-hidden="true"></i></a>
                                     <button class="btn btn-link" wire:click="confirmDelete('{{ $sortie->nom }} {{ $sortie->materiels_id }}', {{$sortie->id}})"> <i class="far fa-trash-alt"></i> </button>
                                 </td>
                             </tr>

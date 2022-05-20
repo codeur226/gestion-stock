@@ -13,7 +13,7 @@
                
                     <div class="d-flex">
                         <div class="form-group flex-grow mr-2">
-                            <label >Nom</label>
+                            <label >Nom sortie</label>
                             <input type="text" wire:model="editSortie.nom" class="form-control @error('editSortie.nom') is-invalid @enderror">
 
                             @error("editSortie.nom")
@@ -21,7 +21,7 @@
                             @enderror
                         </div>
                         <div class="form-group flex-grow mr-1">
-                            <label >ID MATERIEL</label>
+                            <label >Désignation</label>
                             {{--<input type="text" wire:model="editSortie.materiels_id" class="form-control @error('editSortie.materiels_id') is-invalid @enderror">--}}
                         <select class="form-control @error('editSortie.materiels_id') is-invalid @enderror" wire:model="editSortie.materiels_id">
                         
@@ -38,9 +38,20 @@
                     </div>
 
                     <div class="d-flex">
-                        <div class="form-group flex-grow mr-2">
+                   <div class="form-group flex-grow mr -2">
+                    <label >Références</label>
+                      <input type="array" class="form-control @error('editSortie.reference') is-invalid @enderror" wire:model="editSortie.reference">
+                            @error("editSortie.reference")
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                   </div>
+                   </div>
+
+
+                    <div class="d-flex">
+                        {{--<div class="form-group flex-grow mr-2">
                          <label >ID Fournisseur</label>
-                         {{--<input type="text" class="form-control @error('editSortie.fournisseurs_id') is-invalid @enderror" wire:model="editSortie.fournisseurs_id">--}}
+                         {{--<input type="text" class="form-control @error('editSortie.fournisseurs_id') is-invalid @enderror" wire:model="editSortie.fournisseurs_id">
                          <select class="form-control @error('newEntree.fournisseurs_id') is-invalid @enderror" wire:model="newEntree.fournisseurs_id">
                          @foreach ($Fournisseurs as $Fournisseur)
                                             <option value="{{ $Fournisseur->id}}">{{$Fournisseur->prenom}}</option>
@@ -49,10 +60,10 @@
                         @error("editSortie.fournisseurs_id")
                                 <span class="text-danger">{{ $message }}</span>
                         @enderror
-                       </div>
+                       </div>--}}
 
                          <div class="form-group flex-grow">
-                        <label >Quantité</label>
+                        <label >Quantités</label>
                         <input type="array" class="form-control @error('editSortie.quantite_sortie') is-invalid @enderror" wire:model="editSortie.quantite_sortie">
                         @error("editSortie.quantite_sortie")
                                 <span class="text-danger">{{ $message }}</span>
@@ -69,14 +80,15 @@
                   </div>
 
                   <div class="form-group flex-grow">
-                    <label >Imputable</label>
-                    <select class="form-control @error('editSortie.imputable') is-invalid @enderror" wire:model="editSortie.imputable">
+                    <label >Imputable à</label>
+                    <input type="text" class="form-control @error('editSortie.imputable') is-invalid @enderror" wire:model="editSortie.imputable">
+                    {{--<select class="form-control @error('editSortie.imputable') is-invalid @enderror" wire:model="editSortie.imputable">
                         <option value="">---------</option>
                         <option value="1">ANPTIC</option>
                         <option value="2">PADITIC</option>
                         <option value="3">E-BURKINA</option>
                           <option value="4">G-Cloud</option>
-                    </select>
+                    </select>--}}
                     @error("editSortie.imputable")
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -85,7 +97,7 @@
                   </div>
 
                   <div class="d-flex">
-                  <div class="form-group flex-grow mr-2">
+                  {{--<div class="form-group flex-grow mr-2">
                     <label >Destination</label>
                     <select class="form-control @error('editSortie.destinations_id') is-invalid @enderror" wire:model="editSortie.destinations_id">
                         <option value="">---------</option>
@@ -96,6 +108,14 @@
                         
                     </select>
                     @error("editSortie.destinations_id")
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                  </div>--}}
+
+                  <div class="form-group flex-grow mr-2">
+                    <label >Utilité/destination</label>
+                    <input type="text" class="form-control @error('editSortie.destination') is-invalid @enderror" wire:model="editSortie.destination">
+                    @error("editSortie.destination")
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                   </div>

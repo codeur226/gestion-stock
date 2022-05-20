@@ -17,7 +17,7 @@ class ManagerMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Gate::allows("manager")){
+        if(Gate::allows("gestionnaire")){
             return $next($request);
         }
         return redirect()->route("home");

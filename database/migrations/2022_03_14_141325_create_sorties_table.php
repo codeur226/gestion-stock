@@ -19,9 +19,11 @@ class CreateSortiesTable extends Migration
             $table->integer('quantite_sortie');
             $table->date('date_sortie');
             $table->string('imputable');
-            $table->foreignId("destinations_id")->constrained();
+            $table->string('destination');
+            //$table->foreignId("destinations_id")->constrained();
             $table->foreignId("materiels_id")->constrained();
-            $table->foreignId("fournisseurs_id")->constrained();
+            $table->string('reference');
+            //$table->foreignId("fournisseurs_id")->constrained();
             $table->timestamps();
         });
     }
@@ -34,9 +36,9 @@ class CreateSortiesTable extends Migration
     public function down()
     {
         Schema::table('sorties', function (Blueprint $table) {
-            $table->dropForeign("destinations_id");
+            //$table->dropForeign("destinations_id");
             $table->dropForeign("materiels_id");
-            $table->dropForeign("fournisseurs_id");
+            //$table->dropForeign("fournisseurs_id");
             
         });
         Schema::dropIfExists('sorties');

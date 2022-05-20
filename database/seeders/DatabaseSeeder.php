@@ -39,11 +39,11 @@ class DatabaseSeeder extends Seeder
         //materiel::factory(10)->create();
         //$this->call(categorieSeeder::class);
         //$this->call(destinationSeeder::class);
-        destination::factory(4)->create();
+        //destination::factory(4)->create();
          $this->call(rolesSeeder::class);
-        departement::factory(10)->create();
+        //departement::factory(4)->create();
         Commande::factory(10)->create();
-        direction::factory(10)->create();
+        //direction::factory(4)->create();
         //user::factory(10)->create();
         //roles::factory(2)->create();
         //permissions::factory(10)->create();
@@ -51,6 +51,9 @@ class DatabaseSeeder extends Seeder
         //users_permissions::factory(10)->create();
 
         $this->call(UserSeeder::class);
+        
+         $this->call(directionSeeder::class);
+        $this->call(departementSeeder::class);
 
         //entree::factory(10)->create();
         //sortie::factory(10)->create();

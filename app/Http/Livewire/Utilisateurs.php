@@ -8,6 +8,7 @@ use App\Models\Roles;
 use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\User;
+use App\Models\departement;
 use Livewire\WithPagination;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
@@ -51,6 +52,7 @@ class Utilisateurs extends Component
         $searchCriteria = "%".$this->search."%";
         $data = [
             "users" => user::where("nom", "like", $searchCriteria)->latest()->paginate(5),
+            "departements"=> departement::orderBy("libelle", "ASC")->get(),
         ];
 
         return view('livewire.utilisateurs.index', $data)

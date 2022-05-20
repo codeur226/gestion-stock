@@ -12,7 +12,7 @@
 
                 <div class="d-flex">
                         <div class="form-group flex-grow-1 mr-2">
-                            <label >Nom</label>
+                            <label >Nom Entrée</label>
                             <input type="text" wire:model="editEntree.nom" class="form-control @error('editEntree.nom') is-invalid @enderror">
 
                             @error("editEntree.nom")
@@ -20,7 +20,7 @@
                             @enderror
                         </div>
                         <div class="form-group flex-grow-1">
-                            <label >ID MATERIEL</label>
+                            <label >Désignation</label>
                              <select class="form-control @error('newEntree.materiels_id') is-invalid @enderror" wire:model="newEntree.materiels_id">
                         
                        @foreach ($Materiels as $Materiel)
@@ -36,7 +36,7 @@
 
                 <div class="d-flex">
                   <div class="form-group  flex-grow-1 mr-2">
-                    <label >ID Fournisseur</label>
+                    <label >Nom Fournisseur</label>
                      <select class="form-control @error('newEntree.fournisseurs_id') is-invalid @enderror" wire:model="newEntree.fournisseurs_id">
                          @foreach ($Fournisseurs as $Fournisseur)
                                             <option value="{{ $Fournisseur->id}}">{{$Fournisseur->prenom}}</option>
@@ -48,7 +48,7 @@
                   </div>
 
                   <div class="form-group flex-grow-1">
-                    <label >Quantité</label>
+                    <label >Quantités</label>
                     <input type="array" class="form-control @error('editEntree.quantite_entree') is-invalid @enderror" wire:model="editEntree.quantite_entree">
                     @error("editEntree.quantite_entree")
                                 <span class="text-danger">{{ $message }}</span>

@@ -9,7 +9,7 @@ class sortie extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["nom", "quantite_sortie", "date_sortie","imputable","destinations_id","materiels_id","fournisseurs_id"];
+protected $fillable = ["nom", "quantite_sortie","reference", "date_sortie","imputable","destination"/*,"destinations_id"*/,"materiels_id",/*"fournisseurs_id"*/];
     protected $table = 'sorties';
 
     public function materiel()

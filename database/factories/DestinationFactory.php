@@ -14,7 +14,7 @@ class DestinationFactory extends Factory
     public function definition()
     {
         return [
-            "Nom" => $this->faker->LastName,
+            //"Nom" => $this->faker->LastName,
         ];
     }
 }

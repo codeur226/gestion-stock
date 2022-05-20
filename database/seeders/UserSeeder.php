@@ -21,14 +21,14 @@ class UserSeeder extends Seeder
             'prenom' => "Aboubacar",
             'email' => "admin@admin.com",
             'password' => Hash::make('password'),
-            'sexe' => "1",
+            'sexe' => "M",
             'departement_Id' => "1",
             'telephone1' => "54015687",
             'telephone2' => "87139649",
         ]);
         //$user->assignRole('admin');
-        User::find(1)->roles()->attach(2);
-        User::find(1)->permissions()->attach(2);
+        User::find(1)->roles()->attach(1);
+        User::find(1)->permissions()->attach(1);
 
         
         

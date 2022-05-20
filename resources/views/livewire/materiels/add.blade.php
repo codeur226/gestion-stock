@@ -44,7 +44,7 @@
                                     <select  class="form-control" wire:model="addMateriel.Categorie">
                                         <option value="">----------</option>
                                         
-                                         {@foreach ($CategorieMateriels as $CategorieMateriel)
+                                         @foreach ($CategorieMateriels as $CategorieMateriel)
                                             <option value="{{$CategorieMateriel->id}}">{{ $CategorieMateriel->nom }}</option>
                                         @endforeach
                                      </select>

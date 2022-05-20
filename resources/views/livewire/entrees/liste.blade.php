@@ -21,7 +21,7 @@
                   <thead>
                         <tr>
                         <th>Nom Entrée</th>
-                        <th >Quantité</th>
+                        <th >Quantités</th>
                         {{--<th >stock</th>--}}
                         <th  class="text-center">Ajouté</th>
                         <th  class="text-center">Action</th>

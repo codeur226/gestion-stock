@@ -14,15 +14,10 @@ class departementSeeder extends Seeder
      */
     public function run()
     {
-      /* DB::table("departement")->insert([
-           ["libelle"=>"DSA"],
-           ["libelle"=>"DIG"]
-        ]);
-
         DB::table("departement")->insert([
-            ["direction_Id"=>"DME"],
-            ["direction_Id"=>"DMs"]
-         ]);*/
+            ["libelle" => "DDM", "direction_Id" => "1"],
+            ["libelle" => "DDRH", "direction_Id" => "2"],
+        ]);
        
     }
 }

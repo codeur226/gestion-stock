@@ -48,8 +48,8 @@
                     <label >Sexe</label>
                     <select class="form-control @error('newUser.sexe') is-invalid @enderror" wire:model="newUser.sexe">
                         <option value="">---------</option>
-                        <option value="0">Homme</option>
-                        <option value="1">Femme</option>
+                        <option value="H">Homme</option>
+                        <option value="F">Femme</option>
                     </select>
                     @error("newUser.sexe")
                                 <span class="text-danger">{{ $message }}</span>
@@ -68,10 +68,10 @@
                     <label >ID Departement</label>
                     <select class="form-control @error('newUser.departement_Id') is-invalid @enderror" wire:model="newUser.departement_Id">
                         <option value="">---------</option>
-                        <option value="1">DSA</option>
-                        <option value="2">DIG</option>
-                        <option value="3">DME</option>
-                        <option value="4">DPE</option>
+                        
+                       @foreach ($departements as $departement)
+                         <option value="{{$departement->id}}">{{ $departement->libelle }}</option>
+                       @endforeach
                     </select>
                     @error("newUser.departement_Id")
                                 <span class="text-danger">{{ $message }}</span>

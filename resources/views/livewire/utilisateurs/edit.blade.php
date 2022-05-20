@@ -32,9 +32,9 @@
                 <div class="form-group">
                 <label >Sexe</label>
                 <select class="form-control @error('editUser.sexe') is-invalid @enderror" wire:model="editUser.sexe">
-                    <option value="">---------</option>
-                    <option value="0">Homme</option>
-                    <option value="1">Femme</option>
+                    
+                    <option value="M">Homme</option>
+                    <option value="F">Femme</option>
                 </select>
                 @error("editUser.sexe")
                             <span class="text-danger">{{ $message }}</span>
@@ -53,10 +53,9 @@
                     <label >ID Departement</label>
                     <select class="form-control @error('editUser.departement_Id') is-invalid @enderror" wire:model="editUser.departement_Id">
                         <option value="">---------</option>
-                        <option value="1">DSA</option>
-                        <option value="2">DIG</option>
-                        <option value="3">DME</option>
-                        <option value="4">DPE</option>
+                        @foreach ($departements as $departement)
+                         <option value="{{$departement->id}}">{{ $departement->libelle }}</option>
+                       @endforeach
                     </select>
                     @error("editUser.departement_Id")
                                 <span class="text-danger">{{ $message }}</span>

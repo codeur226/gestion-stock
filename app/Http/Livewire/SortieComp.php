@@ -8,6 +8,7 @@ use Livewire\WithPagination;
 use App\Models\sortie;
 use App\Models\Fournisseur;
 use App\Models\Materiel;
+use PDF;
 
 
 
@@ -31,7 +32,7 @@ class SortieComp extends Component
         $searchCriteria = "%".$this->search."%";
         $data = [
             "sorties" => sortie::where("nom", "like", $searchCriteria)->latest()->paginate(5),
-            "Fournisseurs" => Fournisseur::where("nom", "like", $searchCriteria)->latest()->paginate(5),
+            /*"Fournisseurs" => Fournisseur::where("nom", "like", $searchCriteria)->latest()->paginate(5),*/
             "Materiels" => Materiel::where("nom", "like", $searchCriteria)->latest()->paginate(5),
         ];
 
@@ -46,9 +47,11 @@ class SortieComp extends Component
             return [
                 'editSortie.nom' =>'required',
                 'editSortie.imputable' =>'required',
-                'editSortie.destinations_id' =>'required',
+                'editSortie.destination' =>'required',
+                'editSortie.reference' =>'required',
+                //'editSortie.destinations_id' =>'required',
                 'editSortie.materiels_id' =>'required',
-                'editSortie.fournisseurs_id' =>'required',
+                /*'editSortie.fournisseurs_id' =>'required',*/
                 'editSortie.quantite_sortie' =>'required',
                 'editSortie.date_sortie' =>'required',
                 /*'newUser.telephone2' =>'required|numeric'*/
@@ -57,9 +60,11 @@ class SortieComp extends Component
         return [
             'newSortie.nom' =>'required',
             'newSortie.imputable' =>'required',
-            'newSortie.destinations_id' =>'required',
+            'newSortie.reference' =>'required',
+             'newSortie.destination' =>'required',
+            //'newSortie.destinations_id' =>'required',
             'newSortie.materiels_id' =>'required',
-            'newSortie.fournisseurs_id' =>'required',
+            /*'newSortie.fournisseurs_id' =>'required',*/
             'newSortie.quantite_sortie' =>'required',
             'newSortie.date_sortie' =>'required',
             /*'newUser.telephone2' =>'required|numeric'*/
@@ -87,6 +92,7 @@ class SortieComp extends Component
       
               // Vérifier que les informations envoyées par le formulaire sont correctes
               $validationAttributes = $this->validate();
+            
               //dump($validationAttributes);
              // sortie::create($validationAttributes["newSortie"]);
 
@@ -138,6 +144,14 @@ class SortieComp extends Component
               $this->dispatchBrowserEvent("showSuccessMessage", ["message"=>"Sortie supprimé avec 
               succès!"]);
           }
+           //Fonction pour exportee fichier pdf
+    public function exportepdf(){
+        $data = sortie::all();
 
+        view()->share('data', $data);
+        $pdf = PDF::loadview('export');
+        return $pdf->download('data.pdf');
+
+    }
 
 }
