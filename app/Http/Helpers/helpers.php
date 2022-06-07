@@ -1,5 +1,6 @@
 <?php
-use Illuminate\Support\Str;
+use Illuminate\Support\Str; 
+use App\Models\Materiel;
 
 define("PAGELIST", "liste");
 define("PAGECREATEFORM", "create");
@@ -50,4 +51,16 @@ function getRolesName(){
 
     return $rolesName;
 
+}
+//recuperer le champ Nom dans la table sortie
+if (!function_exists('getNomMateriel')) {
+    function getNomMateriel($id)
+    {
+        $record = Materiel::where('id', $id)->first();
+        if ($record != null) {
+            return $record['nom'];
+        } else {
+            return '';
+        }
+    }
 }

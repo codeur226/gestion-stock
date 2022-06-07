@@ -96,12 +96,22 @@ class EntreeComp extends Component
               $Montant = $recharge->quantite_entree;
 
                 $ID = Materiel::where('id', $MaterialID)->first();
-                $Stock = $ID->stock + $Montant;
+                if ( $Montant > 0 ) {
+                    # code...
+                    $Stock = $ID->stock + $Montant;
                 
-                Materiel::where('id', $MaterialID)->update(['stock' => $Stock]);
-
-              $this->newEntree = [];
-
+                    Materiel::where('id', $MaterialID)->update(['stock' => $Stock]);
+    
+                  $this->newEntree = [];
+                  //$this->newUser = [];
+                    $this->dispatchBrowserEvent("showSuccessMessage", ["message"=>"Entree créé avec succès!"]);
+    
+                }
+                else {
+                    # code...
+                    $this->dispatchBrowserEvent("showErrorMessage", ["message"=>" Quantité Incorrect!"]);
+                }
+               
               //$this->updateStock();
               // Mise a jour
               /*$stock= entree::whereId($id)->get('stock_initial');
@@ -112,8 +122,7 @@ class EntreeComp extends Component
               // Ajouter un nouvel utilisateur
               /*User::create($validationAttributes["newUser"]);*/
       
-              $this->newUser = [];
-              $this->dispatchBrowserEvent("showSuccessMessage", ["message"=>"Entree créé avec succès!"]); 
+             
           }
 
           

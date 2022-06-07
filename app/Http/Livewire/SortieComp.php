@@ -103,13 +103,32 @@ class SortieComp extends Component
               $Montant = $recharge->quantite_sortie;
 
                 $ID = Materiel::where('id', $MaterialID)->first();
-                $Stock = $ID->stock - $Montant;
+                if ( $Montant > 0) {
+
+                    if ( $ID->stock >= $Montant) {
+
+                        $Stock = $ID->stock - $Montant;
+                    Materiel::where('id', $MaterialID)->update(['stock' => $Stock]);
+
+                    $this->newSortie = [];
+
+                    $this->dispatchBrowserEvent("showSuccessMessage", ["message"=>"Sortie c'est realiser avec succès!"]);
+                        
+                    }
+                    else {
+                        $this->dispatchBrowserEvent("showErrorMessage", ["message"=>" Quantité Superieur au Stock !! "]);
+                        
+                    }
+                    
+                }
+                else {
+                    $this->dispatchBrowserEvent("showErrorMessage", ["message"=>" Quantité Incorrecte  "]);
+                }
                 
-                Materiel::where('id', $MaterialID)->update(['stock' => $Stock]);
+                
+                
 
-              $this->newSortie = [];
-
-              $this->dispatchBrowserEvent("showSuccessMessage", ["message"=>"Sortie c'est realiser avec succès!"]);
+             
               //dump($validationAttributes);
               // Ajouter un nouvel utilisateur
               /*User::create($validationAttributes["newUser"]);
